@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  database:
+    image: mysql:8-oracle
+    container_name: spring_database
+    restart: always
+    expose:
+      - 3306
+    ports:
+      - "9908:3306"
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_USER: kakaobank
+      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: docker_build
+    volumes:
+      - ../db/mysql/data:/var/lib/mysql
+      - ../db/init:/docker-entrypoint-initdb.d
+
+  cache-database:
+    image: redis
+    container_name: spring_cache
+    expose:
+      - 6379
+    ports:
+      - "6380:6379"

@@ -1,0 +1,45 @@
+spring.application.name: demo
+
+spring:
+    profiles:
+        active: local
+    datasource:
+        url: jdbc:mysql://localhost:9908/docker_build
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+        hibernate:
+            ddl-auto: create
+        properties:
+            hibernate:
+                format_sql: true
+    data:
+        redis:
+            host: localhost
+            port: 6380
+            timeout: 5000
+            lettuce:
+                pool:
+                    maxIdle: 10
+                    minIdle: 5
+                    maxActive: 10
+                    maxWait: 1000
+
+
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: DEBUG
+
+kakao-search:
+    api:
+        host: https://dapi.kakao.com
+        api-key: 07b6d459768892f1a46e55db45f2e578
+
+naver-search:
+    api:
+        host: https://openapi.naver.com
+        client-id: z2rcOUBehapCriWtzvMk
+        client-secret: ubqCvUSbr6
