@@ -88,7 +88,7 @@
 
 - 호출 예시
   ```
-  curl -X GET http://localhost:8080/api/search?keyword=카카오뱅크
+  curl -X GET http://localhost:8080/api/search?keyword=kakaobank
   ```
 - response 예시
     ```
